@@ -1,0 +1,17 @@
+{
+    "name": "فاکتور ساز تعمیرات موبایل",
+    "short_name": "LPT",
+    "start_url": "/admin/dashboard",
+    "background_color": "#6777ef",
+    "description": "برنامه فاکتور تعمیرات موبایل",
+    "display": "fullscreen",
+    "theme_color": "#6777ef",
+    "icons": [
+        {
+            "src": "icon.PNG",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
