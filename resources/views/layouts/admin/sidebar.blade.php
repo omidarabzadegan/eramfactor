@@ -21,19 +21,19 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link active">
+                        <a href="{{ Route('home') }}" class="nav-link {{ Request::is('admin/dashboard', 'admin/dashboard') ? 'active' : ''}}">
                             <i class="nav-icon fa fa-dashboard"></i>
                             <p class="text">داشبورد</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ Route('add.factor') }}" class="nav-link">
+                        <a href="{{ Route('add.factor') }}" class="nav-link {{ Request::is('admin/addFactor', 'admin/addFactor') ? 'active' : ''}}">
                             <i class="nav-icon fa fa-id-card"></i>
                             <p class="text">ورودی موبایل</p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview">
-                        <a href="/admin/#" class="nav-link">
+                    <li class="nav-item has-treeview {{ Request::is('admin/all', 'admin/all') ? 'menu-open' : ''}}">
+                        <a href="/admin/#" class="nav-link {{ Request::is('admin/all', 'admin/all') ? 'active' : ''}}">
                             <i class="nav-icon fa fa-users"></i>
                             <p>
                                 مشتریان
@@ -49,7 +49,7 @@
                             </li>
                         </ul>
                         <li class="nav-item">
-                            <a href="{{ Route('create.laws') }}" class="nav-link">
+                            <a href="{{ Route('create.laws') }}" class="nav-link {{ Request::is('admin/laws/create', 'admin/laws/create') ? 'active' : ''}}">
                                 <i class="nav-icon fa fa-gavel"></i>
                                 <p class="text">قرار دادن قانون</p>
                             </a>

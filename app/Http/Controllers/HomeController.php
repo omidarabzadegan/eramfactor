@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Factor;
+use App\Models\Law;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $factor = Factor::all()->count();
+        $law = Law::all()->count();
+        return view('admin.index', compact('factor', 'law'));
     }
 }

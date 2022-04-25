@@ -1,89 +1,102 @@
 @extends('layouts.admin.master')
 
 @section('content')
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2 mt-4">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">
+                            <a class="nav-link drawer" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+                            داشبورد
+                        </h1>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2 mt-4">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">
-                <a class="nav-link drawer" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
-                داشبورد</h1>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- small box -->
+                        <div class="small-box bg-primary">
+                            <div class="inner">
+                                <h3>{{ $factor }}</h3>
 
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-lg-3 col-md-6 col-12">
-                  <!-- small box -->
-                  <div class="small-box bg-primary">
-                      <div class="inner">
-                          <h3>150</h3>
+                                <p>فاکتور ثبت شده</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-id-card"></i>
+                            </div>
+                            <a href="{{ Route('add.factor') }}" class="small-box-footer">اطلاعات بیشتر</a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- small box -->
+                        <div class="small-box {{ $law == 1 ? 'bg-primary' : 'bg-danger' }}">
+                            <div class="inner">
+                                <h3>{{ $law == 1 ? '1' : '0' }}</h3>
 
-                          <p>سفارشات جدید</p>
-                      </div>
-                      <div class="icon">
-                          <i class="fa fa-shopping-cart"></i>
-                      </div>
-                      <a href="#" class="small-box-footer">اطلاعات بیشتر</a>
-                  </div>
-              </div>
-              <!-- ./col -->
-              <div class="col-lg-3 col-md-6 col-12">
-                  <!-- small box -->
-                  <div class="small-box bg-alert">
-                      <div class="inner">
-                          <h3>53</h3>
+                                <p>{{ $law == 1 ? 'قانون وضع شده' : 'قانونی ثبت نکرده اید' }}</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-gavel"></i>
+                            </div>
+                            <a href="{{ Route('create.laws') }}" class="small-box-footer">{{ $law == 1 ? 'اطلاعات بیشتر' : 'ثبت قانون' }}</a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- small box -->
+                        <div class="small-box bg-primary">
+                            <div class="inner">
+                                <h3>0</h3>
 
-                          <p>مشتریان</p>
-                      </div>
-                      <div class="icon">
-                          <i class="fa fa-sitemap"></i>
-                      </div>
-                      <a href="#" class="small-box-footer">اطلاعات بیشتر</a>
-                  </div>
-              </div>
-              <!-- ./col -->
-              <div class="col-lg-3 col-md-6 col-12">
-                  <!-- small box -->
-                  <div class="small-box bg-primary">
-                      <div class="inner">
-                          <h3>44</h3>
+                                <p>ــــــ</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-image"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">اطلاعات بیشتر</a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- small box -->
+                        <div class="small-box bg-primary">
+                            <div class="inner">
+                                <h3>0</h3>
 
-                          <p>محصول</p>
-                      </div>
-                      <div class="icon">
-                          <i class="fa fa-image"></i>
-                      </div>
-                      <a href="#" class="small-box-footer">اطلاعات بیشتر</a>
-                  </div>
-              </div>
-              <!-- ./col -->
-              <div class="col-lg-3 col-md-6 col-12">
-                  <!-- small box -->
-                  <div class="small-box bg-primary">
-                      <div class="inner">
-                          <h3>65</h3>
-
-                          <p>کاربر</p>
-                      </div>
-                      <div class="icon">
-                          <i class="fa fa-user"></i>
-                      </div>
-                      <a href="#" class="small-box-footer">اطلاعات بیشتر</a>
-                  </div>
-              </div>
-              <!-- ./col -->
-          </div>
-          <div class="row">
+                                <p>ـــــــــ</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">اطلاعات بیشتر</a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>آخرین اخبار  : </h4>
+                                    <p>این بخش در حال راه اندازی میباشد.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- نمودار -->
+                {{-- <div class="row">
               <div class="col-12">
                   <div class="card">
                       <div class="card-header no-border">
@@ -123,13 +136,14 @@
                       </div>
                   </div>
               </div>
-          </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+          </div> --}}
+                <!-- /.row -->
+                <!-- پایان نمودار -->
 
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
 @endsection
