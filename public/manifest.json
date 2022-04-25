@@ -1,6 +1,6 @@
 {
     "name": "اِرم فاکتور",
-    "short_name": "LPT",
+    "short_name": "ERF",
     "start_url": "/admin/dashboard",
     "background_color": "#6777ef",
     "description": "برنامه فاکتور تعمیرات موبایل",
@@ -10,6 +10,42 @@
         {
             "src": "icon.PNG",
             "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "icon024.PNG",
+            "sizes": "1024x1024",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "icon384.PNG",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "icon300.PNG",
+            "sizes": "300x300",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "icon192.PNG",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "icon180.PNG",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "icon167.PNG",
+            "sizes": "167x167",
             "type": "image/png",
             "purpose": "any maskable"
         }

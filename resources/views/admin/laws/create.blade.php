@@ -8,6 +8,9 @@
                 <div class="row mb-2 mt-4">
                     <div class="col-12">
                         <h1 class="m-0 text-dark">
+                            <a class="nav-link drawer" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+                            قانون / ثبت قانون
+
                         </h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
