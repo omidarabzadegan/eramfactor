@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Device;
 use App\Models\Factor;
 use App\Models\Law;
 use Illuminate\Http\Request;
@@ -35,13 +36,39 @@ class factorsController extends Controller
         $validatedData = $this->validate($request, [
             'name' => 'required',
             'phone' => 'required',
-            'imei' => 'required'
+            'imei' => 'required|unique:factors,imei'
         ]);
+
         $storeFactor = Factor::create([
             'name' => $validatedData['name'],
             'phone' => $validatedData['phone'],
-            'imei' => $validatedData['imei']
+            'imei' => $validatedData['imei'],
         ]);
+        $imei = $validatedData['imei'];
+        $factorafter = Factor::Where("imei" , "$imei")->first();
+            Device::create([
+            'password' => $request->password,
+            'faceandtouch' => $request->faceandtouch,
+            'wirless' => $request->wirless,
+            'bluetooth' => $request->bluetooth,
+            'vocerecord' => $request->voicerecord,
+            'camerafront' => $request->camerafront,
+            'rearcamera' => $request->rearcamera,
+            'microphones' => $request->microphone,
+            'speacker' => $request->speacker,
+            'earspicker' => $request->earspeacker,
+            'proximitysensor' => $request->proximitysensor,
+            'alssensor' => $request->alssensor,
+            'touch' => $request->touch,
+            'lcd' => $request->lcd,
+            'keys' => $request->keys,
+            'vibrator' => $request->vibrator,
+            'charging' => $request->charging,
+            'callfunction' => $request->callfunction,
+            'onoff' => $request->onoff,
+            'factor_id' => $factorafter->id,
+        ]);
+
         if($storeFactor)
         {
             return back()->with('success' , 'فاکتور جدید ثبت شد');

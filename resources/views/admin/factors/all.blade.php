@@ -64,8 +64,6 @@
                                             <td>{{ $factor->created_at }}</td>
                                             <td>{{ $factor->imei }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-warning btn-icons"><i
-                                                        class="fa fa-edit"></i></a>
                                                 <a href="{{ Route('destroy.factor', $factor->id) }}"
                                                     class="btn btn-danger btn-icons"><i class="fa fa-trash"></i></a>
                                                 <a href={{ Route('show.factor', $factor->id) }}

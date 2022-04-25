@@ -34,7 +34,7 @@ return new class extends Migration
             $table->enum('callfunction', ['safe', 'not_checked' , 'broken'])->default('not_checked');
             $table->enum('onoff', ['safe', 'not_checked' , 'broken'])->default('not_checked');
 
-            $table->string('password');
+            $table->string('password')->nullable();
 
             $table->unsignedBigInteger('factor_id');
             $table->foreign('factor_id')->references('id')->on('factors')

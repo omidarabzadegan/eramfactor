@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('laws', function (Blueprint $table) {
             $table->id();
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }
