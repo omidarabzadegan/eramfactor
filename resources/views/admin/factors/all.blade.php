@@ -11,7 +11,7 @@
                             <a class="nav-link drawer" data-widget="pushmenu" href="{{ Route('store.factor') }}"><i
                                     class="fa fa-bars"></i></a>
                             فاکتور ها
-                            <a class="btn btn-primary float-left text-white py-2 px-4" href="users-add.php">افزودن فاکتور
+                            <a class="btn btn-primary float-left text-white py-2 px-4" href="{{ Route('add.factor') }}">افزودن فاکتور
                                 جدید</a>
                         </h1>
                     </div><!-- /.col -->

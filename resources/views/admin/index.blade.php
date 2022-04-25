@@ -39,11 +39,11 @@
                     <!-- ./col -->
                     <div class="col-lg-3 col-md-6 col-12">
                         <!-- small box -->
-                        <div class="small-box {{ $law == 1 ? 'bg-primary' : 'bg-danger' }}">
+                        <div class="small-box {{ $law == 1 ? 'bg-danger' : 'bg-success' }}">
                             <div class="inner">
                                 <h3>{{ $law == 1 ? '1' : '0' }}</h3>
 
-                                <p>{{ $law == 1 ? 'قانون وضع شده' : 'قانونی ثبت نکرده اید' }}</p>
+                                <p>{{ $law == 1 ? 'مجاز به ثبت قانون جدید نیستید' : 'مجاز به ثبت قانون هستید' }}</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-gavel"></i>
