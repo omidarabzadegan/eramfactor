@@ -22,6 +22,14 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+        /**
+     * Get the Factor for the User.
+     */
+    public function factor()
+    {
+        return $this->hasMany(Factor::class);
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.

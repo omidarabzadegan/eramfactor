@@ -79,7 +79,7 @@
                     <!-- /.card -->
                     <div class="d-flex justify-content-center">
                         <ul class="pagination mt-3">
-                            {{ $factors->links('pagination::bootstrap-4') }}
+                            {{-- {{ $factors->links('pagination::bootstrap-4') }} --}}
                         </ul>
                     </div>
                 </div>

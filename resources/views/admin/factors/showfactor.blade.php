@@ -112,7 +112,7 @@
 
                                   <tr>   
                                     <td>میکروفون</td>
-                                    <td>{{ $factor->device->microphone === 'not_checked' ? 'بررسی نشده' : ($factor->device->microphone === 'safe' ? 'سالم' : 'خراب') }}</td>      
+                                    <td>{{ $factor->device->speacker === 'not_checked' ? 'بررسی نشده' : ($factor->device->speacker === 'safe' ? 'سالم' : 'خراب') }}</td>      
                                   </tr>
 
                                   <tr>   
@@ -137,7 +137,7 @@
 
                                   <tr>   
                                     <td>تاچ</td>
-                                    <td>{{ $factor->device->toch === 'not_checked' ? 'بررسی نشده' : ($factor->device->toch === 'safe' ? 'سالم' : 'خراب') }}</td>      
+                                    <td>{{ $factor->device->speacker === 'not_checked' ? 'بررسی نشده' : ($factor->device->speacker === 'safe' ? 'سالم' : 'خراب') }}</td>      
                                   </tr>
 
                                   <tr>   
@@ -156,8 +156,8 @@
                                   </tr>
 
                                   <tr>   
-                                    <td>شارژ</td>
-                                    <td>{{ $factor->device->charching === 'not_checked' ? 'بررسی نشده' : ($factor->device->charging === 'safe' ? 'سالم' : 'خراب') }}</td>      
+                                    <td>شارژر</td>
+                                    <td>{{ $factor->device->speacker === 'not_checked' ? 'بررسی نشده' : ($factor->device->speacker === 'safe' ? 'سالم' : 'خراب') }}</td>      
                                   </tr>
                                   
                                   <tr>   

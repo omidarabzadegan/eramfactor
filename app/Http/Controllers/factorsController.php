@@ -6,6 +6,7 @@ use App\Models\Device;
 use App\Models\Factor;
 use App\Models\Law;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class factorsController extends Controller
 {
@@ -38,11 +39,12 @@ class factorsController extends Controller
             'phone' => 'required',
             'imei' => 'required|unique:factors,imei'
         ]);
-
+        
         $storeFactor = Factor::create([
             'name' => $validatedData['name'],
             'phone' => $validatedData['phone'],
             'imei' => $validatedData['imei'],
+            'user_id' => Auth::id()
         ]);
         $imei = $validatedData['imei'];
         $factorafter = Factor::Where("imei" , "$imei")->first();
@@ -77,19 +79,11 @@ class factorsController extends Controller
         }
     }
 
-    function all(Request $request)
+    function all()
     {
-        // $factor = null;
-        // if ($request->has('table_search')) {
-        //     $factor = Factor::query()
-        //     ->where('name', 'LIKE', "%{$request['table_search']}%") 
-        //     ->orWhere('imei', 'LIKE', "%{$request['table_search']}%") 
-        //     ->get();
-        // }else{
-        //     dd('oh oh');
-        // }
-
-        $factors = Factor::paginate(10);
+        $userId = Auth::id();
+        $factors = Factor::Where('user_id' , $userId)->get();
+        
         return view('admin.factors.all' , compact('factors'));
     }
 
