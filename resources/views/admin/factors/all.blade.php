@@ -61,7 +61,7 @@
                                             <td>{{ $factor->id }}</td>
                                             <td>{{ $factor->name }}</td>
                                             <td>{{ $factor->phone }}</td>
-                                            <td>{{ $factor->created_at }}</td>
+                                            <td>{{  \Morilog\Jalali\Jalalian::forge($factor->created_at)->format('Y-m-d H:i:s'); }}</td>
                                             <td>{{ $factor->imei }}</td>
                                             <td>
                                                 <a href="{{ Route('destroy.factor', $factor->id) }}"

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Law;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class lawsController extends Controller
 {
@@ -21,7 +22,8 @@ class lawsController extends Controller
         $beforeLaw = Law::first();
         if (!isset($beforeLaw)) {
             $law = Law::create([
-                'description' => $validatedData['description']
+                'description' => $validatedData['description'],
+                'user_id' => Auth::id()
             ]);
             
             if ($law) {

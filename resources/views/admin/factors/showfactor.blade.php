@@ -92,7 +92,7 @@
 
                                   <tr>   
                                     <td>بلوتوث</td>
-                                    <td>{{ $factor->device->bluetooth === 'not_checked' ? 'بررسی نشده' : ($factor->device->bluettooth === 'safe' ? 'سالم' : 'خراب') }}</td>      
+                                    <td>{{ $factor->device->speacker === 'not_checked' ? 'بررسی نشده' : ($factor->device->speacker === 'safe' ? 'سالم' : 'خراب') }}</td>      
                                   </tr>
 
                                   <tr>   
@@ -162,7 +162,7 @@
                                   
                                   <tr>   
                                     <td>عملیات تماس</td>
-                                    <td>{{ $factor->device->callfunction === 'not_checked' ? 'بررسی نشده' : ($factor->device->cullfunction === 'safe' ? 'سالم' : 'خراب') }}</td>      
+                                    <td>{{ $factor->device->speacker === 'not_checked' ? 'بررسی نشده' : ($factor->device->speacker === 'safe' ? 'سالم' : 'خراب') }}</td>      
                                   </tr>
 
                                   

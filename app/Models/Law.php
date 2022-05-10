@@ -9,4 +9,13 @@ class Law extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    /**
+     * Get the user
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

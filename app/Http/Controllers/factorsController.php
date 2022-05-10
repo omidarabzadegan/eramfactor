@@ -7,10 +7,12 @@ use App\Models\Factor;
 use App\Models\Law;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Morilog\Jalali\CalendarUtils;
+use Morilog\Jalali\Jalalian;
 
 class factorsController extends Controller
 {
-        /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -37,9 +39,9 @@ class factorsController extends Controller
         $validatedData = $this->validate($request, [
             'name' => 'required',
             'phone' => 'required',
-            'imei' => 'required|unique:factors,imei'
+            'imei' => 'required'
         ]);
-        
+
         $storeFactor = Factor::create([
             'name' => $validatedData['name'],
             'phone' => $validatedData['phone'],
@@ -47,8 +49,8 @@ class factorsController extends Controller
             'user_id' => Auth::id()
         ]);
         $imei = $validatedData['imei'];
-        $factorafter = Factor::Where("imei" , "$imei")->first();
-            Device::create([
+        $factorafter = Factor::Where("imei", "$imei")->first();
+        Device::create([
             'password' => $request->password,
             'faceandtouch' => $request->faceandtouch,
             'wirless' => $request->wirless,
@@ -71,39 +73,37 @@ class factorsController extends Controller
             'factor_id' => $factorafter->id,
         ]);
 
-        if($storeFactor)
-        {
-            return back()->with('success' , 'فاکتور جدید ثبت شد');
-        }else{
-            return back()->with('feiled' , 'ثبت با خطا مواجه شد با برنامه نویس تماس بگیرید');
+        if ($storeFactor) {
+            return back()->with('success', 'فاکتور جدید ثبت شد');
+        } else {
+            return back()->with('feiled', 'ثبت با خطا مواجه شد با برنامه نویس تماس بگیرید');
         }
     }
 
     function all()
     {
-        $userId = Auth::id();
-        $factors = Factor::Where('user_id' , $userId)->get();
         
-        return view('admin.factors.all' , compact('factors'));
+        $userId = Auth::id();
+        $factors = Factor::Where('user_id', $userId)->get();
+
+        return view('admin.factors.all', compact('factors'));
     }
 
     function showFactor($factor_id)
     {
         $factor = Factor::findorfail($factor_id);
         $law = Law::first();
-        return view('admin.factors.showfactor'  , compact('factor' , 'law'));
+        return view('admin.factors.showfactor', compact('factor', 'law'));
     }
 
     function destroy($factor_id)
     {
         $factor = Factor::destroy($factor_id);
-        
+
         if (!$factor) {
             return back()->with('success', 'فاکتور با موفقیط حذف شد');
-        }else
-        {
-            return back()->with('failed' , 'حذف فاکتور با خطا مواجه شد');
+        } else {
+            return back()->with('failed', 'حذف فاکتور با خطا مواجه شد');
         }
-        
     }
 }

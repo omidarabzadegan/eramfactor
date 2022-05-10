@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\artisanController;
 use App\Http\Controllers\factorsController;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\lawsController;
@@ -21,8 +22,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
+Auth::routes([
+    // 'register' => false, // regirster Routes...
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+  ]);
 
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -49,3 +53,12 @@ Route::group(['middleware' => ['auth']], function() {
     */
     Route::get('/logout', [logoutController::class , 'perform'])->name('logout.perform');
  });
+
+
+Route::prefix('artisan')->group(function () {
+    Route::get('migrate' , [artisanController::class , 'migrate']);
+    Route::get('clearCache' , [artisanController::class , 'clearCache']);
+    Route::get('npmInstall' , [artisanController::class , 'npmInstall']);
+    Route::get('npmRunDev' , [artisanController::class , 'npmRunDev']);
+    Route::get('migratereset' , [artisanController::class , 'migratereset']);
+});
