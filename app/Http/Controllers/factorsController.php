@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Device;
 use App\Models\Factor;
 use App\Models\Law;
+use App\Models\Status_of_factor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Morilog\Jalali\CalendarUtils;
@@ -48,8 +49,16 @@ class factorsController extends Controller
             'imei' => $validatedData['imei'],
             'user_id' => Auth::id()
         ]);
+
+        
         $imei = $validatedData['imei'];
         $factorafter = Factor::Where("imei", "$imei")->first();
+
+        Status_of_factor::create([
+            'factor_id' => $factorafter->id,
+        ]);
+
+
         Device::create([
             'password' => $request->password,
             'faceandtouch' => $request->faceandtouch,
@@ -106,4 +115,6 @@ class factorsController extends Controller
             return back()->with('failed', 'حذف فاکتور با خطا مواجه شد');
         }
     }
+
+    
 }
