@@ -94,7 +94,7 @@ class factorsController extends Controller
         
         $userId = Auth::id();
         $factors = Factor::Where('user_id', $userId)->get();
-
+        
         return view('admin.factors.all', compact('factors'));
     }
 
@@ -116,5 +116,5 @@ class factorsController extends Controller
         }
     }
 
-    
+
 }

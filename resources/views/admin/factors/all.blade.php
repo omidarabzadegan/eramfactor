@@ -11,7 +11,8 @@
                             <a class="nav-link drawer" data-widget="pushmenu" href="{{ Route('store.factor') }}"><i
                                     class="fa fa-bars"></i></a>
                             فاکتور ها
-                            <a class="btn btn-primary float-left text-white py-2 px-4" href="{{ Route('add.factor') }}">افزودن فاکتور
+                            <a class="btn btn-primary float-left text-white py-2 px-4"
+                                href="{{ Route('add.factor') }}">افزودن فاکتور
                                 جدید</a>
                         </h1>
                     </div><!-- /.col -->
@@ -62,8 +63,19 @@
                                             <td>{{ $factor->id }}</td>
                                             <td>{{ $factor->name }}</td>
                                             <td>{{ $factor->phone }}</td>
-                                            <td>{{  \Morilog\Jalali\Jalalian::forge($factor->created_at)->format('Y-m-d'); }}</td>
-                                            <td><a style="background:rgb(184, 255, 184); border-radius:5px;">{{ $factor->status_of_factor->status }}</a></td>
+                                            <td>{{ \Morilog\Jalali\Jalalian::forge($factor->created_at)->format('Y-m-d') }}
+                                            </td>
+                                            <td>
+                                                    @if ($factor->status_of_factor->status === 'entrance')
+                                                    <a style = 'background:rgb(0, 0, 255);color:#ffff; border-radius:5px; padding:5px; '> {{ "ورودی جدید" }}</a>
+                                                    @elseif ($factor->status_of_factor->status === 'under_repaired')
+                                                    <a style = 'background:orange; border-radius:5px; padding:5px; '> {{ "درحال تعمیر" }}</a>
+                                                    @elseif ($factor->status_of_factor->status === 'repaired')
+                                                    <a style = 'background:green; color:#ffff; border-radius:5px; padding:5px; '> {{ "تعمیر شده" }}</a>
+                                                    @else
+                                                    <a style = 'background:rgb(80, 80, 80);color:#ffff; border-radius:5px; padding:5px; '> {{ " تحویل داده شده" }}</a>
+                                                    @endif
+                                                </td>
                                             <td>{{ $factor->imei }}</td>
                                             <td>
                                                 <a href="{{ Route('destroy.factor', $factor->id) }}"
