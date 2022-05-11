@@ -53,6 +53,7 @@
                                         <th>نام و نام خانوادگی</th>
                                         <th>شماره تماس</th>
                                         <th>تاریخ ورود موبایل</th>
+                                        <th>وضعیت</th>
                                         <th>IMEI</th>
                                         <th>عملیات</th>
                                     </tr>
@@ -61,7 +62,8 @@
                                             <td>{{ $factor->id }}</td>
                                             <td>{{ $factor->name }}</td>
                                             <td>{{ $factor->phone }}</td>
-                                            <td>{{  \Morilog\Jalali\Jalalian::forge($factor->created_at)->format('Y-m-d H:i:s'); }}</td>
+                                            <td>{{  \Morilog\Jalali\Jalalian::forge($factor->created_at)->format('Y-m-d'); }}</td>
+                                            <td><a style="background:rgb(184, 255, 184); border-radius:5px;">تعمیر شده</a></td>
                                             <td>{{ $factor->imei }}</td>
                                             <td>
                                                 <a href="{{ Route('destroy.factor', $factor->id) }}"
