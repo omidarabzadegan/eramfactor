@@ -36,6 +36,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/all', [factorsController::class, 'all'])->name('all.factors');
     Route::get('/show/{factorId}', [factorsController::class, 'showFactor'])->name('show.factor');
     Route::get('/delete/{factorId}', [factorsController::class , 'destroy'])->name('destroy.factor');
+    Route::post('/update/{factorId}' , [factorsController::class , 'updateStatus'])->name('update.status');
 
     Route::prefix('laws')->group(function () {
         Route::get('/create' , [lawsController::class , 'create'])->name('create.laws');

@@ -116,5 +116,14 @@ class factorsController extends Controller
         }
     }
 
+    function updateStatus(Request $request , $factorId)
+    {
+        $status = Status_of_factor::where('factor_id' , $factorId)->first();
+        $status->update([
+            'status' => $request->status
+        ]);
+
+        return back();
+    }
 
 }

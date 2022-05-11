@@ -29,7 +29,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">لیست کاربران</h3>
+                                <h3 class="card-title">لیست فاکتور ها</h3>
 
                                 <div class="card-tools">
                                     <form action={{ Route('all.factors') }}>
@@ -66,16 +66,28 @@
                                             <td>{{ \Morilog\Jalali\Jalalian::forge($factor->created_at)->format('Y-m-d') }}
                                             </td>
                                             <td>
-                                                    @if ($factor->status_of_factor->status === 'entrance')
-                                                    <a style = 'background:rgb(0, 0, 255);color:#ffff; border-radius:5px; padding:5px; '> {{ "ورودی جدید" }}</a>
-                                                    @elseif ($factor->status_of_factor->status === 'under_repaired')
-                                                    <a style = 'background:orange; border-radius:5px; padding:5px; '> {{ "درحال تعمیر" }}</a>
-                                                    @elseif ($factor->status_of_factor->status === 'repaired')
-                                                    <a style = 'background:green; color:#ffff; border-radius:5px; padding:5px; '> {{ "تعمیر شده" }}</a>
-                                                    @else
-                                                    <a style = 'background:rgb(80, 80, 80);color:#ffff; border-radius:5px; padding:5px; '> {{ " تحویل داده شده" }}</a>
-                                                    @endif
-                                                </td>
+                                                @if ($factor->status_of_factor->status === 'entrance')
+                                                    <a type='button' data-toggle="modal"
+                                                        data-target="#exampleModal-{{ $factor->id }}"
+                                                        style='background:rgb(0, 0, 255);color:#ffff; border-radius:5px; padding:5px;cursor: pointer; '>
+                                                        {{ 'ورودی جدید' }}</a>
+                                                @elseif ($factor->status_of_factor->status === 'under_repaired')
+                                                    <a type='button' data-toggle="modal"
+                                                        data-target="#exampleModal-{{ $factor->id }}"
+                                                        style='background:orange; border-radius:5px; padding:5px;cursor: pointer; '>
+                                                        {{ 'درحال تعمیر' }}</a>
+                                                @elseif ($factor->status_of_factor->status === 'repaired')
+                                                    <a type='button' data-toggle="modal"
+                                                        data-target="#exampleModal-{{ $factor->id }}"
+                                                        style='background:green; color:#ffff; border-radius:5px; padding:5px;cursor: pointer; '>
+                                                        {{ 'تعمیر شده' }}</a>
+                                                @else
+                                                    <a type='button' data-toggle="modal"
+                                                        data-target="#exampleModal-{{ $factor->id }}"
+                                                        style='background:rgb(73, 73, 73); color:#ffff; border-radius:5px; padding:5px;cursor: pointer; '>
+                                                        {{ 'تحویل داده شده' }}</a>
+                                                @endif
+                                            </td>
                                             <td>{{ $factor->imei }}</td>
                                             <td>
                                                 <a href="{{ Route('destroy.factor', $factor->id) }}"
@@ -105,4 +117,54 @@
     <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
+
+    <!-- Modal -->
+    @foreach ($factors as $factor)
+        <div class="modal fade" id="exampleModal-{{ $factor->id }}" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">بروزرسانی وضعیت</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>تغییر وضعیت فاکتور شماره {{ $factor->id }}</p>
+                        <form action="{{ Route('update.status', $factor->id ) }}" method="POST">
+                            @csrf
+                            <div>
+                                <div class="form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id=""
+                                        value="entrance">
+                                    <label class="form-check-label" for="">ورودی جدید</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="inlineRadio2"
+                                        value="under_repaired">
+                                    <label class="form-check-label" for="">درحال تعمیر</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="inlineRadio2"
+                                        value="repaired">
+                                    <label class="form-check-label" for="">تعمیر شده</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="inlineRadio2"
+                                        value="delivered">
+                                    <label class="form-check-label" for="">تحویل داده شده</label>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">تغییر وضعیت</button>
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    @endforeach
 @endsection
