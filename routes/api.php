@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\factorsController;
+use App\Http\Controllers\userStatusApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('/')->group(function () {
     
 });
+

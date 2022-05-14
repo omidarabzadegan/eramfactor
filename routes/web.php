@@ -4,6 +4,7 @@ use App\Http\Controllers\artisanController;
 use App\Http\Controllers\factorsController;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\lawsController;
+use App\Http\Controllers\userStatusController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -63,3 +64,11 @@ Route::prefix('artisan')->group(function () {
     Route::get('npmRunDev' , [artisanController::class , 'npmRunDev']);
     Route::get('migratereset' , [artisanController::class , 'migratereset']);
 });
+
+
+Route::get('userTracking', function () {
+    return view('frontend.user-traking');
+});
+
+
+Route::get('userStatus',[userStatusController::class , 'getStatus'])->name('get.status');
