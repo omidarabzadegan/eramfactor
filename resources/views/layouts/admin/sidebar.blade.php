@@ -44,7 +44,7 @@
                             <li class="nav-item">
                                 <a href="{{ Route('all.factors') }}" class="nav-link">
                                     <i class="fa fa-plus nav-icon"></i>
-                                    <p>لیست کلی فاکتور ها</p>
+                                    <p>لیست موبایل ها</p>
                                 </a>
                             </li>
                         </ul>

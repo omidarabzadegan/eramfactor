@@ -15,14 +15,17 @@ return new class extends Migration
     {
         Schema::create('factors', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('phone');
             $table->string('imei');
             $table->string('tracking_code')->unique();
             $table->timestamps();
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('casCade');
+            
+            $table->unsignedBigInteger('customer_id');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('casCade');
+
+            
         });
     }
 

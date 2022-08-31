@@ -26,4 +26,9 @@ class Factor extends Model
     {
         return $this->hasOne(Status_of_factor::class);
     }
+
+    public function customer()
+    {
+        return $this->belongsTo(customer::class);
+    }
 }

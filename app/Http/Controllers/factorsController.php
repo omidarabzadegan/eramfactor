@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\Device;
 use App\Models\Factor;
 use App\Models\Law;
@@ -40,20 +41,23 @@ class factorsController extends Controller
         $validatedData = $this->validate($request, [
             'name' => 'required',
             'phone' => 'required',
-            'imei' => 'required',
         ]);
         $tracking_code = mt_rand(1000000000, 9999999999); 
-        $storeFactor = Factor::create([
+        $customerStore = Customer::create([
             'name' => $validatedData['name'],
-            'phone' => $validatedData['phone'],
-            'imei' => $validatedData['imei'],
-            'tracking_code' => $tracking_code,
-            'user_id' => Auth::id()
+            'phone' => $validatedData['phone']
         ]);
 
+// dd($customerStore);
+        $storeFactor = Factor::create([
+            'imei' => $request->imei,
+            'tracking_code' => $tracking_code,
+            'user_id' => Auth::id(),
+            'customer_id' => $customerStore->id
+        ]);
         
-        $imei = $validatedData['imei'];
-        $factorafter = Factor::Where("imei", "$imei")->first();
+        
+        $factorafter = Factor::Where("tracking_code", "$tracking_code")->first();
 
         Status_of_factor::create([
             'factor_id' => $factorafter->id,
