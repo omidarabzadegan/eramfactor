@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('imei');
+            $table->string('tracking_code')->unique();
             $table->timestamps();
 
             $table->unsignedBigInteger('user_id');

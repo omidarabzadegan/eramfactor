@@ -9,7 +9,7 @@
                     <div class="col-12">
                         <h1 class="m-0 text-dark">
                             <a class="nav-link drawer" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
-                            قانون / ثبت قانون
+                            پا فاکتوری / ثبت پافاکتوری
 
                         </h1>
                     </div><!-- /.col -->
@@ -24,12 +24,12 @@
                 @include('errors.messages')
                 @if (!isset($law))
                     <div class="alert alert-info" role="alert">
-                        شما مجاز به ثبت قانون هستید ، اما فقط یک بار این امکان را دارید
+                        شما مجاز به ثبت پافاکتوری هستید ، اما فقط یک بار این امکان را دارید
                     </div>
                 @else
                     <div class="alert alert-danger" role="alert">
-                        ثبت قانون جدید مجاز نیست<br>
-                        درصورتی که میخواهید مجدد قانونی وارد کنید بر روی <a href="{{ Route('destroy.laws') }}">اینجا</a>
+                        ثبت پافاکتوری جدید مجاز نیست<br>
+                        درصورتی که میخواهید مجدد پا فاکتوری وارد کنید بر روی <a href="{{ Route('destroy.laws') }}">اینجا</a>
                         کلیک کنید
                     </div>
                 @endif
@@ -43,7 +43,7 @@
                                     <div class="row">
                                     </div>
                                     <div class="form-group">
-                                        <label>قانون خود را بنویسید</label>
+                                        <label>پافاکتوری خود را بنویسید</label>
                                         <textarea name="description" id="editor"></textarea>
                                     </div>
                                 </div>

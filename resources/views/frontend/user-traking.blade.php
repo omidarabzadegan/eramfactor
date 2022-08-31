@@ -4,7 +4,7 @@
     <form action="{{ Route('get.status') }}" method="GET">
         @csrf
         @method('GET')
-        شماره<input type="text" name="phone" id=""><br>
+        کد پیگیری<input type="text" name="tracking_code" id=""><br>
         <button type="submit">ثبت</button>
     </form>
 

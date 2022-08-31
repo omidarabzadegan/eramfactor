@@ -33,7 +33,7 @@
   <div class="card cardRight">
     <div class="eye"></div>
     <div class="number">
-      <h3>{{ $results['factorData']['id'] }}</h3>
+      <h3>{{ $results['factorData']['tracking_code'] }}</h3>
       <span>شماره فاکتور</span>
     </div>
     <div class="barcode"></div>

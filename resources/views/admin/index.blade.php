@@ -28,7 +28,7 @@
                             <div class="inner">
                                 <h3>{{ $factor }}</h3>
 
-                                <p>فاکتور ثبت شده</p>
+                                <p>دستگاه ثبت شده</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-id-card"></i>
@@ -43,12 +43,12 @@
                             <div class="inner">
                                 <h3>{{ $law == 1 ? '1' : '0' }}</h3>
 
-                                <p>{{ $law == 1 ? 'مجاز به ثبت قانون نیستید' : 'مجاز به ثبت قانون هستید' }}</p>
+                                <p>{{ $law == 1 ? 'مجاز به ثبت پافاکتوری نیستید' : 'مجاز به ثبت پافاکتوری هستید' }}</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-gavel"></i>
                             </div>
-                            <a href="{{ Route('create.laws') }}" class="small-box-footer">{{ $law == 1 ? 'اطلاعات بیشتر' : 'ثبت قانون' }}</a>
+                            <a href="{{ Route('create.laws') }}" class="small-box-footer">{{ $law == 1 ? 'اطلاعات بیشتر' : 'ثبت پافاکتوری' }}</a>
                         </div>
                     </div>
                     <!-- ./col -->

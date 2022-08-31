@@ -27,7 +27,7 @@ class lawsController extends Controller
             ]);
             
             if ($law) {
-                return back()->with('success' , 'قانون با موفقیت به فاکتور های جدیداضافه میشود');
+                return back()->with('success' , 'پافاکتوری با موفقیت به فاکتور های جدیداضافه میشود');
             }else{
                 return back()->with('failed' , 'ثبت با خطا مواجه شد');
             }

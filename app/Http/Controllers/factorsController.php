@@ -40,13 +40,14 @@ class factorsController extends Controller
         $validatedData = $this->validate($request, [
             'name' => 'required',
             'phone' => 'required',
-            'imei' => 'required'
+            'imei' => 'required',
         ]);
-
+        $tracking_code = mt_rand(1000000000, 9999999999); 
         $storeFactor = Factor::create([
             'name' => $validatedData['name'],
             'phone' => $validatedData['phone'],
             'imei' => $validatedData['imei'],
+            'tracking_code' => $tracking_code,
             'user_id' => Auth::id()
         ]);
 
@@ -125,5 +126,7 @@ class factorsController extends Controller
 
         return back();
     }
+
+
 
 }

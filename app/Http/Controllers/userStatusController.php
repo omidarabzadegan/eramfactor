@@ -11,7 +11,7 @@ class userStatusController extends Controller
 {
     function getStatus(Request $request)
     {
-        $factor = Factor::all()->where('phone', $request->phone)->first();
+        $factor = Factor::all()->where('tracking_code', $request->tracking_code )->first();
         if (!isset($factor)) {
             return back();
         }
@@ -39,6 +39,7 @@ class userStatusController extends Controller
         $results = [
             'factorData' => [
                 'name' => $factor->name,
+                'tracking_code' => $factor->tracking_code,
                 'id' => $factor->id,
                 'created_at' => $created_at,
                 'created_at_time' => $created_at_time,

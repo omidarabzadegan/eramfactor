@@ -51,7 +51,7 @@
                         <li class="nav-item">
                             <a href="{{ Route('create.laws') }}" class="nav-link {{ Request::is('admin/laws/create', 'admin/laws/create') ? 'active' : ''}}">
                                 <i class="nav-icon fa fa-gavel"></i>
-                                <p class="text">قرار دادن قانون</p>
+                                <p class="text">قرار دادن پافاکتوری</p>
                             </a>
                         </li>
                         <li class="nav-item">
