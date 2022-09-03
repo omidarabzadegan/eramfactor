@@ -14,7 +14,7 @@ class Factor extends Model
     {
         return $this->hasOne(Device::class);
     }
-        /**
+    /**
      * Get the Users relationship.
      */
     public function user()

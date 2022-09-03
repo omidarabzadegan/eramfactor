@@ -34,8 +34,9 @@
                                 <div class="card-tools">
                                     <form action={{ Route('all.factors') }}>
                                         <div class="input-group input-group-sm" style="width: 150px;">
-                                            <input type="text" name="table_search" class="form-control float-right"
-                                                placeholder="جستجو">
+                                            <div class="input-group input-group-sm" style="width: 150px;">
+                                                <input type="text" id="myInput" class="form-control float-right" onkeyup="myFunction()" placeholder="جستجو ...">
+    
 
                                             <div class="input-group-append">
                                                 <button type="submit" class="btn btn-default"><i
@@ -46,11 +47,10 @@
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="table table-striped table-valign-middle mb-0">
+                        <div class="table table-striped table-valign-middle mb-0" id="myTable">
                             <table class="table table-hover mb-0">
                                 <tbody>
                                     <tr>
-                                        <th>آیدی</th>
                                         <th>نام و نام خانوادگی</th>
                                         <th>شماره تماس</th>
                                         <th>تاریخ ورود موبایل</th>
@@ -60,9 +60,8 @@
                                     </tr>
                                     @foreach ($factors as $factor)
                                         <tr>
-                                            <td>{{ $factor->id }}</td>
-                                            <td>{{ $factor->name }}</td>
-                                            <td>{{ $factor->phone }}</td>
+                                            <td>{{ $factor->customer->name }}</td>
+                                            <td>{{ $factor->customer->phone }}</td>
                                             <td>{{ \Morilog\Jalali\Jalalian::forge($factor->created_at)->format('Y-m-d') }}
                                             </td>
                                             <td>
@@ -167,4 +166,25 @@
             </div>
         </div>
     @endforeach
+
+    <script>
+        function myFunction() {
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }       
+          }
+        }
+        </script>
 @endsection

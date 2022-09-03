@@ -61,7 +61,9 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="container">
+                                    <a href="#checklist" class="btn btn-info" data-toggle="collapse">چک لیست</a>
+                                    <div id="checklist" class="collapse">
                                 <div class="container">
                                     <div class="card-body">
                                         <div class="row">
@@ -428,11 +430,13 @@
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
-
+                            </div>
+                        </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary float-left">ذخیره کردن</button>
                                 </div>
                             </form>
+                            
                         </div>
                     </div>
                 </div>
@@ -440,7 +444,9 @@
             </div>
             <!-- /.container-fluid -->
         </div>
+        
         <!-- /.content -->
     </div>
+    
     <!-- /.content-wrapper -->
 @endsection

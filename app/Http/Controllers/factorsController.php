@@ -45,10 +45,10 @@ class factorsController extends Controller
         $tracking_code = mt_rand(1000000000, 9999999999); 
         $customerStore = Customer::create([
             'name' => $validatedData['name'],
-            'phone' => $validatedData['phone']
+            'phone' => $validatedData['phone'],
+            'user_id' => Auth::id()
         ]);
 
-// dd($customerStore);
         $storeFactor = Factor::create([
             'imei' => $request->imei,
             'tracking_code' => $tracking_code,

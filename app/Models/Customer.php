@@ -15,4 +15,12 @@ class Customer extends Model
     {
         return $this->hasMany(Factor::class);
     }
+
+     /**
+     * Get the Users relationship.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

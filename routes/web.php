@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\artisanController;
+use App\Http\Controllers\customerController;
 use App\Http\Controllers\factorsController;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\lawsController;
@@ -34,7 +35,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/addFactor', [factorsController::class, 'create'])->name('add.factor');
     Route::post('/store', [factorsController::class, 'store'])->name('store.factor');
     Route::get('testRoute', [factorsController::class, 'testRoute'])->name('testRoute');
-    Route::get('/all', [factorsController::class, 'all'])->name('all.factors');
+    Route::get('factor/all', [factorsController::class, 'all'])->name('all.factors');
+    Route::get('/customer/all', [customerController::class, 'all'])->name('all.customers');
     Route::get('/show/{factorId}', [factorsController::class, 'showFactor'])->name('show.factor');
     Route::get('/delete/{factorId}', [factorsController::class , 'destroy'])->name('destroy.factor');
     Route::post('/update/{factorId}' , [factorsController::class , 'updateStatus'])->name('update.status');
@@ -45,7 +47,15 @@ Route::prefix('admin')->group(function () {
         Route::post('/store' , [lawsController::class , 'store'])->name('store.laws');
     });
 
+    Route::prefix('customers')->group(function(){
+        Route::post('/create', [customerController::class , 'store'])->name('store.customer');
+        Route::get('/delete/{id}', [customerController::class , 'destroy'])->name('destroy.customer');
+    });
+    
+
 });
+
+
 
 
 

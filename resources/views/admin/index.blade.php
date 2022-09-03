@@ -56,9 +56,9 @@
                         <!-- small box -->
                         <div class="small-box bg-primary">
                             <div class="inner">
-                                <h3>0</h3>
+                                <h3>{{ $customer }}</h3>
 
-                                <p>ــــــ</p>
+                                <p>مشتریان</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-image"></i>
@@ -96,8 +96,9 @@
                         </div>
                     </div>
                 </div>
+                
                 <!-- نمودار -->
-                {{-- <div class="row">
+                 {{-- <div class="row">
               <div class="col-12">
                   <div class="card">
                       <div class="card-header no-border">
@@ -109,14 +110,14 @@
                       <div class="card-body">
                           <div class="d-flex">
                               <p class="d-flex flex-column">
-                                  <span class="text-bold text-lg">تومان 18,230.00</span>
-                                  <span>فروش در طول زمان</span>
+                                  <span class="text-bold text-lg">تعداد مشتریان</span>
+                                  <span>مشتریان در طول زمان</span>
                               </p>
                               <p class="mr-auto d-flex flex-column text-right">
                     <span class="text-success">
                       <i class="fa fa-arrow-up"></i> 33.1%
                     </span>
-                                  <span class="text-muted">از ماه گذشته</span>
+                                  <span class="text-muted">از هفته گذشته</span>
                               </p>
                           </div>
                           <!-- /.d-flex -->
@@ -127,17 +128,17 @@
 
                           <div class="d-flex flex-row justify-content-end">
                   <span class="ml-2">
-                    <i class="fa fa-square text-primary"></i> امسال
+                    <i class="fa fa-square text-primary"></i> این ماه
                   </span>
 
                               <span>
-                    <i class="fa fa-square text-gray"></i> سال گذشته
+                    <i class="fa fa-square text-gray"></i> ماه گذشته
                   </span>
                           </div>
                       </div>
                   </div>
               </div>
-          </div> --}}
+          </div>  --}}
                 <!-- /.row -->
                 <!-- پایان نمودار -->
 

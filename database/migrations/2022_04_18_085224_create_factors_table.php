@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('factors', function (Blueprint $table) {
             $table->id();
-            $table->string('imei');
+            $table->string('imei')->nullable();
             $table->string('tracking_code')->unique();
             $table->timestamps();
 

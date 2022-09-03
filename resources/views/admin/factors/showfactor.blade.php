@@ -28,19 +28,28 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">فاکتور مشتری {{ $factor['name'] }}</h3>
+                                <h3 class="card-title">فاکتور مشتری {{ $factor->customer->name }}</h3>
                             </div>
                             <br>
                             <div style="margin-right: 30px;" class="border-1">
-                                نام : {{ $factor['name'] }}
+                                نام : {{ $factor->customer->name }}
                                 <br>
                                 <br>
                                 <br>
-                                شماره تماس : {{ $factor['phone'] }}
+                                شماره تماس : {{ $factor->customer->phone}}
                                 <br>
                                 <br>
                                 <br>
-                                شناسه موبایل : {{ $factor['imei'] }}
+                                شناسه موبایل :  @if(isset($factor['imei']))
+                                {{ $factor['imei'] }}
+                                @else
+                                <p style="
+                                display: inline;
+                                background: #c71212;
+                                border-radius: 6px;
+                                padding: 4px;
+                                color: #fff;"> قرار نگرفته است</p>
+                            @endif
                             </div>
                             <br>
                             @if (isset($law->description))

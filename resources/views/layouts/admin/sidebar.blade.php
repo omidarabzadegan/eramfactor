@@ -32,7 +32,7 @@
                             <p class="text">ورودی موبایل</p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview {{ Request::is('admin/all', 'admin/all') ? 'menu-open' : ''}}">
+                    {{-- <li class="nav-item has-treeview {{ Request::is('admin/all', 'admin/all',) ? 'menu-open' : ''}}">
                         <a href="/admin/#" class="nav-link {{ Request::is('admin/all', 'admin/all') ? 'active' : ''}}">
                             <i class="nav-icon fa fa-users"></i>
                             <p>
@@ -40,6 +40,7 @@
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
+                    
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ Route('all.factors') }}" class="nav-link">
@@ -47,7 +48,27 @@
                                     <p>لیست موبایل ها</p>
                                 </a>
                             </li>
-                        </ul>
+                            <li class="nav-item">
+                                <a href="{{ Route('all.customers') }}" class="nav-link">
+                                    <i class="fa fa-plus nav-icon"></i>
+                                    <p>لیست مشتریان</p>
+                                </a>
+                            </li>
+                        </ul> 
+                    </li>
+                        --}}
+                        <li class="nav-item">
+                            <a href="{{ Route('all.factors') }}" class="nav-link {{ Request::is('admin/factor/all', 'admin/factor/all') ? 'active' : ''}}">
+                                <i class="nav-icon fa fa-microchip"></i>
+                                <p class="text">دستگاه ها</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ Route('all.customers') }}" class="nav-link {{ Request::is('admin/customer/all', 'admin/customer/all') ? 'active' : ''}}">
+                                <i class="nav-icon fa fa-users"></i>
+                                <p class="text">مشتریان</p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ Route('create.laws') }}" class="nav-link {{ Request::is('admin/laws/create', 'admin/laws/create') ? 'active' : ''}}">
                                 <i class="nav-icon fa fa-gavel"></i>

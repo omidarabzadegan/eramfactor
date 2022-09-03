@@ -35,6 +35,15 @@ class User extends Authenticatable
     {
         return $this->hasOne(Law::class);
     }
+
+    /**
+     * Get the Factor for the User.
+     */
+    public function customer()
+    {
+        return $this->hasMany(Customer::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
