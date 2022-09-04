@@ -24,8 +24,8 @@ class customerController extends Controller
     }
 
     function store(Request $request) {
-
-        $customer = Customer::create([
+            
+            Customer::create([
             'name' => $request->name,
             'phone' => $request->phone,
             'user_id' => Auth::id()
