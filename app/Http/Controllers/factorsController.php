@@ -9,6 +9,7 @@ use App\Models\Law;
 use App\Models\Status_of_factor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Morilog\Jalali\CalendarUtils;
 use Morilog\Jalali\Jalalian;
 
@@ -48,6 +49,8 @@ class factorsController extends Controller
             'phone' => $validatedData['phone'],
             'user_id' => Auth::id()
         ]);
+        $name = $validatedData['name'];
+        $phone = $validatedData['phone'];
 
         $storeFactor = Factor::create([
             'imei' => $request->imei,
@@ -88,6 +91,7 @@ class factorsController extends Controller
         ]);
 
         if ($storeFactor) {
+            Http::get("http://ippanel.com:8080/?apikey=YjsKejOv2T-LhA5TkhqGOI6-nYuR66DiZ8awJCIC_6I=&pid=bymatvfr1ha6s9g&fnum=90000145&tnum=$phone&p1=name&p2=code-peygiri&v1=$name&v2=$tracking_code");
             return back()->with('success', 'فاکتور جدید ثبت شد');
         } else {
             return back()->with('feiled', 'ثبت با خطا مواجه شد با برنامه نویس تماس بگیرید');

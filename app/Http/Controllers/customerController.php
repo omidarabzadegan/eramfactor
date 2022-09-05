@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class customerController extends Controller
 {
@@ -43,4 +44,5 @@ class customerController extends Controller
         }
 
     }
+
 }

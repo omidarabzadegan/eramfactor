@@ -50,6 +50,7 @@ Route::prefix('admin')->group(function () {
     Route::prefix('customers')->group(function(){
         Route::post('/create', [customerController::class , 'store'])->name('store.customer');
         Route::get('/delete/{id}', [customerController::class , 'destroy'])->name('destroy.customer');
+        Route::get('/httptest' , [customerController::class , 'http']);
     });
     
 
