@@ -47,65 +47,60 @@
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="table table-striped table-valign-middle mb-0" id="myTable">
-                            <table class="table table-hover mb-0">
-                                <tbody>
-                                    <tr>
-                                        <th>نام و نام خانوادگی</th>
-                                        <th>شماره تماس</th>
-                                        <th>تاریخ ورود موبایل</th>
-                                        <th>وضعیت</th>
-                                        <th>IMEI</th>
-                                        <th>عملیات</th>
-                                    </tr>
-                                    @foreach ($factors as $factor)
-                                        <tr>
-                                            <td>{{ $factor->customer->name }}</td>
-                                            <td>{{ $factor->customer->phone }}</td>
-                                            <td>{{ \Morilog\Jalali\Jalalian::forge($factor->created_at)->format('Y-m-d') }}
-                                            </td>
-                                            <td>
-                                                @if ($factor->status_of_factor->status === 'entrance')
-                                                    <a type='button' data-toggle="modal"
-                                                        data-target="#exampleModal-{{ $factor->id }}"
-                                                        style='background:rgb(0, 0, 255);color:#ffff; border-radius:5px; padding:5px;cursor: pointer; '>
-                                                        {{ 'ورودی جدید' }}</a>
-                                                @elseif ($factor->status_of_factor->status === 'under_repaired')
-                                                    <a type='button' data-toggle="modal"
-                                                        data-target="#exampleModal-{{ $factor->id }}"
-                                                        style='background:orange; border-radius:5px; padding:5px;cursor: pointer; '>
-                                                        {{ 'درحال تعمیر' }}</a>
-                                                @elseif ($factor->status_of_factor->status === 'repaired')
-                                                    <a type='button' data-toggle="modal"
-                                                        data-target="#exampleModal-{{ $factor->id }}"
-                                                        style='background:green; color:#ffff; border-radius:5px; padding:5px;cursor: pointer; '>
-                                                        {{ 'تعمیر شده' }}</a>
-                                                @else
-                                                    <a type='button' data-toggle="modal"
-                                                        data-target="#exampleModal-{{ $factor->id }}"
-                                                        style='background:rgb(73, 73, 73); color:#ffff; border-radius:5px; padding:5px;cursor: pointer; '>
-                                                        {{ 'تحویل داده شده' }}</a>
-                                                @endif
-                                            </td>
-                                            <td>{{ $factor->imei }}</td>
-                                            <td>
-                                                <a href="{{ Route('destroy.factor', $factor->id) }}"
-                                                    class="btn btn-danger btn-icons"><i class="fa fa-trash"></i></a>
-                                                <a href={{ Route('show.factor', $factor->id) }}
-                                                    class="btn btn-primary btn-icons"><i class="fa fa-id-card"></i></a>
-                                        </tr>
-                                    @endforeach
-
-                                </tbody>
-                            </table>
-                        </div>
+                        
                         <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
-                    <div class="d-flex justify-content-center">
-                        <ul class="pagination mt-3">
-                            {{-- {{ $factors->links('pagination::bootstrap-4') }} --}}
-                        </ul>
+                    <div class="table table-striped table-valign-middle mb-0" id="myTable">
+                        <table class="table table-hover mb-0">
+                            <tbody>
+                                <tr class="header">
+                                    <th>نام و نام خانوادگی</th>
+                                    <th>شماره تماس</th>
+                                    <th>تاریخ ورود موبایل</th>
+                                    <th>وضعیت</th>
+                                    <th>IMEI</th>
+                                    <th>عملیات</th>
+                                </tr>
+                                @foreach ($factors as $factor)
+                                    <tr>
+                                        <td>{{ $factor->customer->name }}</td>
+                                        <td>{{ $factor->customer->phone }}</td>
+                                        <td>{{ \Morilog\Jalali\Jalalian::forge($factor->created_at)->format('Y-m-d') }}
+                                        </td>
+                                        <td>
+                                            @if ($factor->status_of_factor->status === 'entrance')
+                                                <a type='button' data-toggle="modal"
+                                                    data-target="#exampleModal-{{ $factor->id }}"
+                                                    style='background:rgb(0, 0, 255);color:#ffff; border-radius:5px; padding:5px;cursor: pointer; '>
+                                                    {{ 'ورودی جدید' }}</a>
+                                            @elseif ($factor->status_of_factor->status === 'under_repaired')
+                                                <a type='button' data-toggle="modal"
+                                                    data-target="#exampleModal-{{ $factor->id }}"
+                                                    style='background:orange; border-radius:5px; padding:5px;cursor: pointer; '>
+                                                    {{ 'درحال تعمیر' }}</a>
+                                            @elseif ($factor->status_of_factor->status === 'repaired')
+                                                <a type='button' data-toggle="modal"
+                                                    data-target="#exampleModal-{{ $factor->id }}"
+                                                    style='background:green; color:#ffff; border-radius:5px; padding:5px;cursor: pointer; '>
+                                                    {{ 'تعمیر شده' }}</a>
+                                            @else
+                                                <a type='button' data-toggle="modal"
+                                                    data-target="#exampleModal-{{ $factor->id }}"
+                                                    style='background:rgb(73, 73, 73); color:#ffff; border-radius:5px; padding:5px;cursor: pointer; '>
+                                                    {{ 'تحویل داده شده' }}</a>
+                                            @endif
+                                        </td>
+                                        <td>{{ $factor->imei }}</td>
+                                        <td>
+                                            <a href="{{ Route('destroy.factor', $factor->id) }}"
+                                                class="btn btn-danger btn-icons"><i class="fa fa-trash"></i></a>
+                                            <a href={{ Route('show.factor', $factor->id) }}
+                                                class="btn btn-primary btn-icons"><i class="fa fa-id-card"></i></a>
+                                    </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

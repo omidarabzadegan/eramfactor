@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('imei')->nullable();
             $table->string('tracking_code')->unique();
+            $table->longText('description')->nullable();
             $table->timestamps();
 
             $table->unsignedBigInteger('user_id');

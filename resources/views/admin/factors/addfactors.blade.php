@@ -35,21 +35,21 @@
                                             <div class="form-group">
                                                 <label>نام و نام خانوادگی</label>
                                                 <input type="text" class="form-control" name="name" autocomplete="off"
-                                                    placeholder="نام و نام خانوادگی را وارد کنید">
+                                                    placeholder="نام و نام خانوادگی را وارد کنید" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>شماره تماس</label>
                                                 <input type="phone" class="form-control" name="phone" autocomplete="off"
-                                                    placeholder="شماره تماس را وارد کنید">
+                                                    placeholder="شماره تماس را وارد کنید" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>IMEI تلفن همراه</label>
+                                                <label>IMEI تلفن همراه (درصورت نداشتن رمز خالی بگذارید)</label>
                                                 <input type="text" class="form-control" name="imei" autocomplete="off"
-                                                    placeholder="IMEI موبایل را  را وارد کنید">
+                                                    placeholder="IMEI موبایل را  را وارد کنید" >
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -57,6 +57,12 @@
                                                 <label> رمز دستگاه  (درصورت نداشتن رمز خالی بگذارید)</label>
                                                 <input type="text" class="form-control" name="password" autocomplete="off"
                                                     placeholder="رمز موبایل را وارد کنید">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label> توضیحات</label>
+                                                <textarea placeholder="متن خود را وارد کنید" type="text" class="form-control editor"  id="editor" name="description" autocomplete="off">متن خود را وارد کنید</textarea>
                                             </div>
                                         </div>
                                     </div>
