@@ -92,7 +92,7 @@ class factorsController extends Controller
         ]);
 
         if ($storeFactor) {
-            // Http::get("http://ippanel.com:8080/?apikey=YjsKejOv2T-LhA5TkhqGOI6-nYuR66DiZ8awJCIC_6I=&pid=bymatvfr1ha6s9g&fnum=90000145&tnum=$phone&p1=name&p2=code-peygiri&v1=$name&v2=$tracking_code");
+            
             return back()->with('success', 'فاکتور جدید ثبت شد');
         } else {
             return back()->with('feiled', 'ثبت با خطا مواجه شد با برنامه نویس تماس بگیرید');
