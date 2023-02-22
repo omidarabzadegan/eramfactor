@@ -3,6 +3,7 @@
 use App\Http\Controllers\artisanController;
 use App\Http\Controllers\customerController;
 use App\Http\Controllers\factorsController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\lawsController;
 use App\Http\Controllers\userStatusController;
@@ -20,9 +21,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes([
     // 'register' => false, // regirster Routes...
@@ -76,9 +76,9 @@ Route::prefix('artisan')->group(function () {
 });
 
 
-Route::get('userTracking', function () {
-    return view('frontend.user-traking');
-});
+// Route::get('userTracking', function () {
+//     return view('frontend.user-traking');
+// });
 
 
-Route::get('userStatus',[userStatusController::class , 'getStatus'])->name('get.status');
+// Route::get('userStatus',[userStatusController::class , 'getStatus'])->name('get.status');

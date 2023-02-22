@@ -33,7 +33,7 @@
                             <div class="icon">
                                 <i class="fa fa-id-card"></i>
                             </div>
-                            <a href="{{ Route('add.factor') }}" class="small-box-footer">اطلاعات بیشتر</a>
+                            <a href="{{ Route('add.factor') }}" class="small-box-footer">ثبت دستگاه جدید</a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -41,7 +41,7 @@
                         <!-- small box -->
                         <div class="small-box {{ $law == 1 ? 'bg-danger' : 'bg-success' }}">
                             <div class="inner">
-                                <h3>{{ $law == 1 ? '1' : '0' }}</h3>
+                                <h3>{{ $law == 1 ? 'ⓧ' : '✓' }}</h3>
 
                                 <p>{{ $law == 1 ? 'ثبت پافاکتوری غیر مجاز' : 'مجاز به ثبت پافاکتوری ' }}</p>
                             </div>
@@ -61,9 +61,9 @@
                                 <p>مشتریان</p>
                             </div>
                             <div class="icon">
-                                <i class="fa fa-image"></i>
+                                <i class="fa fa-user"></i>
                             </div>
-                            <a href="#" class="small-box-footer">اطلاعات بیشتر</a>
+                            <a href="#" class="small-box-footer">ثبت مشتری</a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -71,14 +71,15 @@
                         <!-- small box -->
                         <div class="small-box bg-primary">
                             <div class="inner">
-                                <h3>0</h3>
+                                <h3>{{ $law == 1 ? 'ⓧ' : '✓' }}</h3>
+                                
+                                <p>{{ $law == 1 ? 'ثبت پافاکتوری غیر مجاز' : 'مجاز به ثبت پافاکتوری ' }}</p>
 
-                                <p>ـــــــــ</p>
                             </div>
                             <div class="icon">
-                                <i class="fa fa-user"></i>
+                                <i class="fa fa-envelope"></i>
                             </div>
-                            <a href="#" class="small-box-footer">اطلاعات بیشتر</a>
+                            <a href="#" class="small-box-footer">تنظیم پنل</a>
                         </div>
                     </div>
                     <!-- ./col -->

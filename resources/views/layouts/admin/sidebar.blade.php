@@ -76,6 +76,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fa fa-cog"></i>
+                                <p class="text">تنظیمات پیامک</p>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
                             <a href="{{ Route('logout.perform') }}" class="nav-link">
                                 <i class="nav-icon fa fa-sign-out"></i>
                                 <p class="text">خروج از حساب</p>
